@@ -10,7 +10,7 @@
 <meta name="author" content="Raj" />
 
 <!-- Page Title -->
-<title>Life Yoga</title>
+<title>Yoga Classes</title>
 
 <!-- Favicon and Touch Icons -->
 <link href="images/favicon.png" rel="shortcut icon" type="image/png">
@@ -113,6 +113,85 @@
                 <h1 class="text-white text-uppercase font-54">Health  <span class="text-theme-colored">Yoga </span></h1>
                 <h5 class="text-white font-weight-400">Every day we bring hope to millions of children in the world's <br>hardest places as a sign of God's unconditional love.</h5>
                 <!-- <a class="btn btn-colored btn-theme-colored btn-flat smooth-scroll-to-target mt-15" href="#">Read More</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Section: Calculator  -->
+    <section class="divider parallax" data-bg-img="images/bg/bg2.jpg">
+      <div class="container">
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-6">
+              <div class="p-40 bg-white">
+                <h2 class="mt-0">Book your <span class="text-theme-colored">Sit Now!</span></h2>
+                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem autem voluptatem obcaecati.</p> -->
+                <!-- Appointment Form -->
+                <form class="gform pure-form pure-form-stacked" id="appointment_form" method="POST" data-email="example@email.net"
+                action="https://script.google.com/macros/s/AKfycbxsEul9Xb3CQ0jGVe4aDlGwsUJ5DhU2D0ubOnVA3sOe4ztR78pxFczBOg/exec">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="pure-group form-group mb-10">
+                        <input name="name" id="name" class="form-control" type="text" required="" placeholder="Enter Your Name" aria-required="true">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group mb-10">
+                        <input name="mobile" id="mobile" class="form-control required phone" type="phone" placeholder="Enter Your Mobile Number" aria-required="true">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group mb-10">
+                        <input name="Email_Id" id="Email_Id" class="form-control required email" type="email" placeholder="Enter Your Email" aria-required="true">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group mb-10">
+                        <input name="Appointment_date" id="Appointment_date" class="form-control required datetime-picker" type="text" placeholder="Appoinment Date & Time" aria-required="true">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group mb-10">
+                    <textarea id="Message" name="Message" class="form-control required"  placeholder="Enter Message" rows="5" aria-required="true"></textarea>
+                  </div>
+                  <div class="form-group mb-0 mt-20">
+                    <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+                    <button class="btn btn-dark btn-theme-colored">Send Message</button>
+                  </div>
+                  <!-- <button>Send</button> -->
+                  <div class="thankyou_message" style="display:none;">
+                    <h2><em>Thanks</em> for contacting us!
+                      We will get back to you soon!</h2>
+                  </div>
+                </form>
+                <!-- Appointment Form Validation-->
+                <script type="text/javascript">
+                  $("#appointment_form").validate({
+                    submitHandler: function(form) {
+                      var form_btn = $(form).find('button[type="submit"]');
+                      var form_result_div = '#form-result';
+                      $(form_result_div).remove();
+                      form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
+                      var form_btn_old_msg = form_btn.html();
+                      form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
+                      $(form).ajaxSubmit({
+                        dataType:  'json',
+                        success: function(data) {
+                          if( data.status == 'true' ) {
+                            $(form).find('.form-control').val('');
+                          }
+                          form_btn.prop('disabled', false).html(form_btn_old_msg);
+                          $(form_result_div).html(data.message).fadeIn('slow');
+                          setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
+                        }
+                      });
+                    }
+                  });
+                </script>
               </div>
             </div>
           </div>
@@ -366,83 +445,7 @@
       </div> 
     </section>
 
-    <!-- Section: Calculator  -->
-    <section class="divider parallax" data-bg-img="images/bg/bg2.jpg">
-      <div class="container">
-        <div class="section-content">
-          <div class="row">
-            <div class="col-md-6 col-md-offset-6">
-              <div class="p-40 bg-white">
-                <h2 class="mt-0">Book your <span class="text-theme-colored">Sit Now!</span></h2>
-                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem autem voluptatem obcaecati.</p> -->
-                <!-- Appointment Form -->
-                <form class="gform pure-form pure-form-stacked" id="appointment_form" method="POST" data-email="example@email.net"
-                action="https://script.google.com/macros/s/AKfycbxsEul9Xb3CQ0jGVe4aDlGwsUJ5DhU2D0ubOnVA3sOe4ztR78pxFczBOg/exec">
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="pure-group form-group mb-10">
-                        <input name="name" id="name" class="form-control" type="text" required="" placeholder="Enter Your Name" aria-required="true">
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group mb-10">
-                        <input name="mobile" id="mobile" class="form-control required phone" type="phone" placeholder="Enter Your Mobile Number" aria-required="true">
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group mb-10">
-                        <input name="Email_Id" id="Email_Id" class="form-control required email" type="email" placeholder="Enter Your Email" aria-required="true">
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group mb-10">
-                        <input name="Appointment_date" id="Appointment_date" class="form-control required datetime-picker" type="text" placeholder="Appoinment Date & Time" aria-required="true">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group mb-10">
-                    <textarea id="Message" name="Message" class="form-control required"  placeholder="Enter Message" rows="5" aria-required="true"></textarea>
-                  </div>
-                  <div class="form-group mb-0 mt-20">
-                    <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
-                    <button class="btn btn-dark btn-theme-colored">Send Message</button>
-                  </div>
-                  <!-- <button>Send</button> -->
-                  <div class="thankyou_message" style="display:none;">
-                    <h2><em>Thanks</em> for contacting us!
-                      We will get back to you soon!</h2>
-                  </div>
-                </form>
-                <!-- Appointment Form Validation-->
-                <script type="text/javascript">
-                  $("#appointment_form").validate({
-                    submitHandler: function(form) {
-                      var form_btn = $(form).find('button[type="submit"]');
-                      var form_result_div = '#form-result';
-                      $(form_result_div).remove();
-                      form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
-                      var form_btn_old_msg = form_btn.html();
-                      form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
-                      $(form).ajaxSubmit({
-                        dataType:  'json',
-                        success: function(data) {
-                          if( data.status == 'true' ) {
-                            $(form).find('.form-control').val('');
-                          }
-                          form_btn.prop('disabled', false).html(form_btn_old_msg);
-                          $(form_result_div).html(data.message).fadeIn('slow');
-                          setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
-                        }
-                      });
-                    }
-                  });
-                </script>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
 
     <!--start trainer Section-->
@@ -1067,5 +1070,55 @@
 
 <script data-cfasync="false" type="text/javascript" src="form-submission-handler.js"></script>
 
+<!--control u off-->
+<script>
+  document.onkeydown = function(e) {
+          if (e.ctrlKey && 
+              (e.keyCode === 67 || 
+               e.keyCode === 86 || 
+               e.keyCode === 85 || 
+               e.keyCode === 117)) {
+              return false;
+          } else {
+              return true;
+          }
+  };
+  $(document).keypress("u",function(e) {
+    if(e.ctrlKey)
+    {
+  return false;
+  }
+  else
+  {
+  return true;
+  }
+  });
+  </script>
+  <!--right click off-->
+<!-- <script>
+  document.addEventListener('contextmenu', event => event.preventDefault());
+</script> -->
+<!--fn f12 off-->
+<script>
+  document.onkeypress = function (event) {
+event = (event || window.event);
+if (event.keyCode == 123) {
+return false;
+}
+}
+
+document.onmousedown = function (event) {
+event = (event || window.event);
+if (event.keyCode == 123) {
+return false;
+}
+}
+document.onkeydown = function (event) {
+event = (event || window.event);
+if (event.keyCode == 123) {
+return false;
+}
+}
+</script>
 </body>
 </html>
